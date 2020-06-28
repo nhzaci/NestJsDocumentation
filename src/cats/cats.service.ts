@@ -6,7 +6,7 @@ import { Cat } from './interfaces/cat.interface';
 // Providers inject dependencies; meaning objects and create relationships with each other
 @Injectable() // Any provider can be annotated with the Injectable decorator
 export class CatsService {
-  private readonly cats: Cat[] = [];
+  private readonly cats: Cat[] = [{ name: "Gelly", age: 5, breed: "Bobtail Cat" }];
   
   // For optional dependencies, simply declare @Optional in the constructor
   // constructor(@Optional() @Inject(<token>) private dependencyName: Type) {}
@@ -17,5 +17,9 @@ export class CatsService {
 
   findAll(): Cat[] {
     return this.cats;
+  }
+
+  findOne(id: number): Cat {
+    return this.cats[id];
   }
 }
