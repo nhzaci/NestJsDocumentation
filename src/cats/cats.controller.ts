@@ -5,6 +5,9 @@ import { Cat } from './interfaces/cat.interface';
 
 @Controller('cats')
 export class CatsController {
+
+  // Nest will automatically resolve the singleton catsService and pass it
+  // to the controller, so we don't have to worry about multiple instances of the service
   constructor(private catsService: CatsService) {}
 
   @Post()
